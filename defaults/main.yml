@@ -1,0 +1,31 @@
+---
+
+#dnetBIOS
+dnetBIOS: "core-staging"
+
+#runAsUser
+runAsUser: "{{dnetBIOS}}\\sqlservice"
+
+#runAsPassword
+runAsPassword: "R3cruit3r"
+
+#AgName
+AgName: "CRMSQLAG1"
+
+#AgListener
+AgListener: "CRMSQLAG1L"
+
+#SqlServerName
+SqlServerName: "SQL01"
+
+SQL01IP1: "172.31.42.78"
+SQL01IP2: "172.31.42.79/255.255.240.0"
+SQL02IP1: "172.31.7.171"
+SQL02IP2: "172.31.7.172/255.255.240.0"
+
+clustername: "SQL01CLUSTER"
+primarySqlServer: "SQL01"
+secondarySqlServer: "SQL02"
+domainController: "DC01"
+# prepending slashes are appended in the code
+cquorum: "{{domainController}}\\WSFCWitness"

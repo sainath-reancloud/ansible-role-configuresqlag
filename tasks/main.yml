@@ -1,0 +1,13 @@
+---
+
+- name: Install and Configure WSFC
+  script: wsfc.ps1 "{{runAsUser}}" {{runAsPassword}} {{clustername}} {{primarySqlServer}} {{secondarySqlServer}} {{SQL01IP1}} {{SQL02IP1}} "{{cquorum}}"
+
+- name: Run powershell script to configure alwayson AG
+  script: configAG.ps1 -dnetBIOS {{dnetBIOS}} -runAsUser "{{runAsUser}}" -runAsPassword {{runAsPassword}} -AgName {{AgName}} -AgListener {{AgListener}} -SqlServerName {{SqlServerName}} -IP1 {{SQL01IP2}} -IP2 {{SQL02IP2}}
+
+- name: Run powershell script to configure SQL RS with AG
+  script: configRSAG.ps1 -runAsUser "{{runAsUser}}" -runAsPassword {{runAsPassword}} -AgListener {{AgListener}} -SqlServerName {{SqlServerName}}
+
+
+
